@@ -5,7 +5,7 @@ class FibonacciSeries {
 	}
 
 	// introducing a bug
-	hello;
+	hello
 	
 	public static void printFibonacciSeries(int count) {
 		int a = 0;
