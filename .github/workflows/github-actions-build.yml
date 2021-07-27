@@ -11,17 +11,17 @@ on:
         description: 'Log level'
         required: true
         default: 'warning'
-
 jobs:
   Compile:
+    name: compile
+    runs-on: ubuntu-latest
     steps:
-    - name: compile
-      run: echo "hi"
-  Package:
-    needs: Compile
-     steps:
-    - name: compile
-      run: echo "hi1"
+    - run: echo "hi"
+#   Package:
+#     needs: Compile
+#      steps:
+#     - name: compile
+#       run: echo "hi1"
 #   test_integration:
 #     needs: Package
 #     strategy:
