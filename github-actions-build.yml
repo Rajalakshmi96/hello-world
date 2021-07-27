@@ -13,8 +13,14 @@ on:
 
 jobs:
   Compile:
+    steps:
+    - name: compile
+      run: echo "hi"
   Package:
     needs: Compile
+     steps:
+    - name: compile
+      run: echo "hi1"
   test_integration:
     needs: Package
     strategy:
