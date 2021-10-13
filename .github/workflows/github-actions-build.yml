@@ -1,0 +1,39 @@
+name: Build
+on:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+
+jobs:
+  Compile:
+    name: compile
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo "hi"
+  Package:
+    needs: Compile
+    name: package
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo "hi1"
+  test_integration:
+    needs: Package
+    name: test_integration
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        Plan: [ubuntu16, ubuntu18, rhel7, rhel8, debian9, centos7, centos8, awslinux2]
+    steps:
+    - name: Run tests
+      env:
+        PLAN: ${{matrix.Plan}}
+      run: echo "hi"
+  Build:
+    runs-on: ubuntu-latest
+    needs: [Compile, Package, test_integration]
+    steps:
+      - run: echo "hi1"

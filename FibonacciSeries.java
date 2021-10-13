@@ -4,7 +4,6 @@ class FibonacciSeries {
 		printFibonacciSeries(10);
 	}
 
-	// added commentS
 	public static void printFibonacciSeries(int count) {
 		int a = 0;
 		int b = 1;
